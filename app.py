@@ -116,10 +116,16 @@ else:
         col1, col2 = st.columns(2)
 
         with col1:
-            st.metric(
-                label="Prediction Confidence",
-                value=f"{prediction_prob * 100:.2f} %"
-            )
+            if:
+                st.metric(
+                    label="Prediction Confidence for Malignancy",
+                    value=f"{prediction_prob * 100:.2f} %"
+                )
+            else:
+                st.metric(
+                    label="Prediction Confidence for Benign",
+                    value=f"{(1-prediction_prob) * 100:.2f} %"
+                )
 
         with col2:
             if prediction_class:
